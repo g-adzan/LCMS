@@ -1,0 +1,27 @@
+qgrid
+
+cek data secara keseluruhan
+
+untuk cek mana yang masih belum terisi
+
+DONE stratified sampling dan sampling tool dijadikan 1 notebook aja
+
+DONE file ditimpa aja
+
+DONE next and prev button link dengan oid-selector dengan dropdown
+
+DONE class id (forest = 1, no-forest = 0)
+
+DONE pakai ipyleaflet gpp, tapi tambahkan basemap hi res 
+
+toolbar taruh di bawah peta
+
+DONE user editable dipisahkan menjadi kolom tersendiri dan hint
+
+DONE di bagian landsat tambahkan visualization parameter
+
+ganti icon titik
+
+DONE view peta satu aja
+
+DONE bikin function untuk visualisasi RGB
