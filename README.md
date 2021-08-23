@@ -5,5 +5,6 @@ Land Cover Monitoring System merupakan inisiatif kegiatan pemetaan penutup lahan
 
 Tools ini terdiri dari dua bagian yang saling berkaitan, yaitu pembuatan `stratified samples` yang distribusinya didasari hasil K-Means Clustering dan *user interface* berbasis `ipyleaflet` dan `ipywidgets` untuk pemberian label penutup lahan.
 
-![](Animation.gif)
+![Animation8](https://user-images.githubusercontent.com/60416865/130492601-95383dc2-22ca-4cdd-a29b-65702038eade.gif)
+
 
