@@ -1,5 +1,5 @@
 # Sampling tools
-## WWF-Indonesia Land Cover Monitoring System
+## Land Cover Monitoring System
 
 Land Cover Monitoring System merupakan inisiatif kegiatan pemetaan penutup lahan dan pemantauan perubahannya melalui *remote sensing*. Salah satu metode utama yang digunakan dalam memetakan penutup lahan adalah *supervised machine learning*. Tools ini dibuat untuk memudahkan proses pembuatan titik sampel yang terstruktur dan juga memberikan label yang akan digunakan sebagai *input* dalam *supervised machine learning*. Tools ini dibuat dalam platform `Jupyter` dengan menggunakan beberapa *package* seperti `ipywidgets`, `ipyleaflet`, `geopandas`, dan `ee`.
 
