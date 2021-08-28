@@ -1,0 +1,28 @@
+\documentclass[a4paper,12pt]{article}
+
+\begin{document}
+
+\title{Laporan Pekerjaan \\ Pengembangan Aplikasi Sampling Penutup Lahan}
+\author{\textbf{Gemasakti Adzan} \\ gemasakti.adzan@gmail.com}
+\date{\today}
+\maketitle
+
+\section{Pendahuluan}
+Pendekatan \textit{machine-learning} dengan teknik \textit{supervised classification} merupakan metode yang banyak dipakai untuk memproduksi peta penutup lahan dari citra multispektral dan hiperspektral. Beberapa metode yang banyak digunakan misalnya metode \textit{spectral distance-based} (Minimum Distance, Maximum Likelihood, Support Vector Machine/SVM); \textit{decision tree-based} (Decision Trees/DT, Classification and Regression Trees/CART, dan Random Forests/RF); dan \textit{neural-based} (Artificial Neural Network, K-Neural Network). Teknik \textit{supervised classification} memerlukan \textit{labelled samples} dalam proses membangun \textit{classifier model}. Setiap sampel akan “dilatih” dengan membangun hubungan antara \textit{labelled samples} dengan statistik dari \textit{predictors} (berupa \textit{image bands} maupun \textit{transformation index}) dengan metode \textit{supervised classification} di atas. Kualitas \textit{classifier model} dalam memetakan penutup lahan (digambarkan melalui akurasi \textit{training samples} dan \textit{test samples}) sangat bergantung dari kualitas sampel yang digunakan. Oleh karena itu diperlukan dataset sampel yang baik, yang benar-benar merepresentasikan statistik dari suatu tipe penutup lahan. \par
+
+\textit{Labelled samples} salah satunya dapat diperolah dari dataset observasi lapangan, misalnya plot sampel dan hasil observasi lapangan. Namun terkadang untuk area pemetaan yang besar, sampel tersebut tidak cukup representatif dari segi kuantitas dan distribusi spasialnya untuk digunakan sebagai sampel dalam model \textit{supervised classification}. Oleh karena itu sampel lebih sering dibangun dengan membuat dataset sampel dengan proses observasi dan digitisasi (berupa titik maupun area) pada citra penginderaan jauh yang relevan digunakan sebagai referensi. Permasalahannya, proses ini seringkali menghasilkan dataset sampel yang tidak cukup ideal untuk model \textit{supervised classification}. Misalnya, banyak sampel yang \textit{redundant} dan secara statistik tidak meliput distribusi nilai piksel keseluruhan secara utuh. Artinya kecenderungan tidak terambilnya “kluster” sampel dengan karakteristik tertentu bisa terjadi. \par
+
+Solusi yang dapat digunakan untuk mengatasi permasalahan tersebut di atas beberapa di antaranya adalah pendekatan \textit{semisupervised learning} dan \textit{active learning}. Dalam proses \textit{semisupervised learning}, pertama dilakukan proses \textit{unsupervised clustering} untuk mengelompokkan piksel menjadi beberapa kluster. Setiap kluster kemudian diberikan label tipe penutup lahan, beberapa di antaranya mungkin masih berupa percampuran beberapa tipe penutup lahan. Melalui observasi, kluster-kluster yang menggambarkan kelas penutup lahan murni kemudian dijadikan acuan untuk membuat \textit{labelled sampel}. Proses pada \textit{active learning} pada dasarnya juga dilakukan berdasarkan proses \textit{clustering}, namun yang membedakan setiap kluster tersebut kemudian dilatih dengan sejumlah kecil \textit{labelled samples} menggunakan metode \textit{supervised classification} tertentu, misalnya yang dicontohkan oleh Patra \& Bruzzone (2011) dengan Support Vector Machine (SVM). \textit{Feature space} kemudian digunakan untuk mengelompokkan objek sampel yang \textit{robust} dan membuang objek sampel yang ambigu (dalam \textit{feature space} digambarkan sebagai objek yang lokasinya beririsan dengan kluster atau kelas lain). \par
+
+Projek ini bertujuan untuk mendesain sebuah aplikasi pembuatan sampel sebagai \textit{input} dalam \textit{supervised classification} dengan mempertimbangkan berbagai permasalahan di atas. Dalam projek ini, pendekatan yang digunakan adalah \textit{semisupervised learning} dengan menggunakan metode K-Means Clustering. Dari setiap kluster yang dihasilkan, sejumlah titik sampel kemudian diambil secara acak dengan jumlah proporsi berdasarkan luas setiap kluster. Proses berikutnya adalah \textit{data labelling}, yaitu memberikan label pada setiap titik sampel tersebut. Aplikasi ini dibuat pada platform Jupyter Notebook, sehingga prosesnya dapat direpetisi dan juga mengakomodasi perubahan yang dapat dilakukan untuk pengembangan atau perbaikan. Aplikasi ini dapat digunakan untuk berbagai citra multispektral maupun hiperspektral, namun dalam projek ini akan dicontohkan dengan menggunakan liputan citra Landsat 8 OLI.
+
+\section{K-Means Clustering}
+
+\section{Jupyter Notebook}
+
+\section{Aplikasi Sampling Penutup Lahan}
+
+
+
+
+\end{document}
