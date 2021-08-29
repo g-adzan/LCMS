@@ -102,7 +102,7 @@ Pada bagian peta interaktif, titik sampel akan ditampilkan satu persatu berdasar
 
 ![ss_1](https://user-images.githubusercontent.com/60416865/131251370-8e5cbc5a-cf2f-4707-962a-f352055ad1bd.png)
 
-Pengguna dapat menyimpan hasil sementara pemberian label yang dilakukan untuk dapat diedit atau dilanjutkan lagi prosesnya. Pengguna juga dapat mengekspor hasil akhir pemberian label ke GEE asset sehingga data sampel tersebut dapat digunakan untuk proses berikutnya yaitu membangun *supervised machine learning model*.
+Pengguna dapat menyimpan hasil sementara pemberian label yang dilakukan untuk dapat diedit atau dilanjutkan lagi prosesnya. Pengguna dapat menyimpan file tersebut dengan nama yang sama (*overwrite*) sehingga ketika ingin melanjutkan proses pemberian label pengguna tidak perlu memasukan variabel baru. Pengguna juga dapat mengekspor hasil akhir pemberian label ke GEE asset sehingga data sampel tersebut dapat digunakan untuk proses berikutnya yaitu membangun *supervised machine learning model*.
 
 ```python
 # Export current results
