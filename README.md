@@ -6,11 +6,8 @@
   <ol>
     <li><a href="#overview">Overview</a></li>
     <li><a href="#background">Background</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgements">Acknowledgements</a></li>
+    <li><a href="#prerequisites">Prerequisites</a></li>
+    <li><a href="#usage">Usage</a></li>
   </ol>
 </details>
 
@@ -35,7 +32,6 @@ Pertama, Anda perlu memastikan bahwa Python dan `anaconda` telah terpasang pada 
 
 Kedua, Anda harus memiliki akun [Google Earth Engine](https://earthengine.google.com/) ([sign up](https://accounts.google.com/signin/v2/identifier?service=ah&passive=true&continue=https%3A%2F%2Fuc.appengine.google.com%2F_ah%2Fconflogin%3Fcontinue%3Dhttps%3A%2F%2Fsignup.earthengine.google.com%2F&flowName=GlifWebSignIn&flowEntry=ServiceLogin)).
 
-### Create conda environment and install some required packages
 Anda dapat membuat conda environment (lebih detil [di sini](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html)) dan memasang beberapa Python package dengan command berikut:
 
 ```python
