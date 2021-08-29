@@ -35,9 +35,8 @@ Kedua, Anda harus memiliki akun [Google Earth Engine](https://earthengine.google
 Anda dapat membuat conda environment (lebih detil [di sini](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html)) dan memasang beberapa Python package dengan command berikut:
 
 ```python
-conda create --name lcms -c conda-forge python=3.8 earthengine-api geopandas
+conda create --name lcms -c conda-forge python=3.8 earthengine-api geopandas mamba
 conda activate lcms
-conda install mamba -c conda-forge
 mamba install geemap xarray_leaflet -c conda-forge
 ```
 
