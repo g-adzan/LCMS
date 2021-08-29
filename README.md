@@ -98,7 +98,7 @@ path_to_shp = "./samples/Aug-06-2021_Borneo_2016_stratifiedsamples_15_1000_gcs.s
 class_opt = ["Forest", "No-forest"]
 ```
 
-Pada bagian peta interaktif, titik sampel akan ditampilkan satu persatu berdasaran unique ID yang dimiliki. Pengguna dapat memberikan label dengan memilih salah satu tipe penutup lahan dari *widget dropdownlist* dan meng-klik *trigger button* `Save edit`. Pengguna dapat beralih ke *feature* berikutnya dengan meng-klik *widget button* `Next feature` ataupun `Prev. feature`. Pengguna juga dapat beralih ke lokasi *feature* tertentu dengan memilih ID yang diinginkan dan meng-klik *widget button* `Jump to feature`.
+Pada bagian peta interaktif, titik sampel akan ditampilkan satu persatu berdasaran unique ID yang dimiliki. Pengguna dapat memberikan label dengan memilih salah satu tipe penutup lahan dari *widget dropdownlist* dan meng-klik *trigger button* `Save change!`. Pengguna dapat beralih ke *feature* berikutnya dengan meng-klik *widget button* `Next feature` ataupun `Prev. feature`. Pengguna juga dapat beralih ke lokasi *feature* tertentu dengan memilih ID yang diinginkan dan meng-klik *widget button* `Jump to feature`.
 
 ![ss_1](https://user-images.githubusercontent.com/60416865/131251370-8e5cbc5a-cf2f-4707-962a-f352055ad1bd.png)
 
