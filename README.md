@@ -1,5 +1,19 @@
 # Land Cover Sampling Tool
 
+<!-- TABLE OF CONTENTS -->
+<details open="open">
+  <summary>Table of Contents</summary>
+  <ol>
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#background">Background</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgements">Acknowledgements</a></li>
+  </ol>
+</details>
+
 ## Overview
 **Land Cover Sampling Tool** dapat digunakan untuk mendesain dan memberikan label pada sampel yang dapat digunakan dalam proses klasifikasi citra penginderaan jauh dengan teknik *supervised machine learning*. Aplikasi ini dibangun pada platform Jupyter Notebook dengan menggunakan beberapa Python package seperti `ee`, `geopandas`, `ipywidgets`, dan `ipyleaflet`. Aplikasi ini terdiri dari dua bagian: 
 1. membangun set data sampel yang distribusinya didasarkan atas hasil K-Means Clustering dengan proporsi jumlah sesuai luas setiap kluster; 
