@@ -54,7 +54,7 @@ conda install jupyter_contrib_nbextensions -c conda-forge
 
 ## Usage
 ### Sample generator
-**Sample generator** akan membuat *unlabelled samples dataset* yang sebaran dan jumlahnya didasari hasil K-Means Clustering. Pada bagian **User Editable Part** pengguna dapat mengisikan variabel jumlah kluster (k) dan jumlah total titik sampel yang ingin dibuat. Titik sampel akan dibuat dengan jumlah proporsional berdasarkan luasan dari setiap kluster. Selain itu pengguna juga perlu mengisikan beberapa parameter lain seperti id asset GEE citra yang akan digunakan (**ee.Image()**), area pemetaan, dan folder **Google Drive** untuk ekspor data sampel yang dihasilkan.
+**Sample generator** akan membuat *unlabelled samples dataset* yang sebaran dan jumlahnya didasari hasil K-Means Clustering. Pada bagian **User Editable Part** pengguna dapat mengisikan variabel jumlah kluster (k) dan jumlah total titik sampel yang ingin dibuat. Titik sampel akan dibuat dengan jumlah proporsional berdasarkan luasan dari setiap kluster. Selain itu pengguna juga perlu mengisikan beberapa parameter lain seperti id asset GEE citra yang akan digunakan, area pemetaan, dan folder **Google Drive** untuk ekspor data sampel yang dihasilkan.
 ```python
 ### USER EDITABLE PART
 
@@ -84,3 +84,16 @@ exportName = "Borneo_2016"
 Pada tahap terakhir dari bagian ini, *unlabelled samples dataset* yang telah dibuat akan diekspor ke Google Drive Anda pada folder yang telah ditentukan sebelumnya dalam format ESRI Shapefiles. Anda perlu mengunduh data tersebut terlebih dahulu untuk dapat melanjutkan ke proses data labelling. Anda perlu memastikan untuk menyimpan file unduhan tersebut pada root directory yang sama dengan lokasi file Jupyter notebook disimpan pada komputer Anda.
 
 ### Data labelling
+Sebelum memulai proses pemberian label penutup lahan secara interaktif, Anda perlu mendefinisikan dua variabel pada bagian **User Editable Part** yaitu lokasi penyimpanan titik sampel dalam format ESRI Shapefiles dan pilihan tipe penutup lahan.
+```python
+### USER EDITABLE PART
+
+# Bagian 1: nama dan folder path lokasi penyimpanan file titik sampel yang dibuat 
+# berdasarkan hasil clustering dengan K-Means pada tahap sebelumnya 
+# (ataupun titik yang telah selesai diisi atributnya sebagian)
+# Contoh: "./samples/Aug-06-2021_Borneo_2016_stratifiedsamples_15_1000_gcs.shp"
+path_to_shp = "./samples/Aug-06-2021_Borneo_2016_stratifiedsamples_15_1000_gcs.shp"
+
+# Bagian 2: daftar label tutupan lahan
+class_opt = ["Forest", "No-forest"]
+```
