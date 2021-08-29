@@ -7,7 +7,14 @@
     <li><a href="#overview">Overview</a></li>
     <li><a href="#background">Background</a></li>
     <li><a href="#prerequisites">Prerequisites</a></li>
-    <li><a href="#usage">Usage</a></li>
+    <li><a href="#usage">Usage</a>
+      <ul>
+        <a href="#sample-generator">Sample generator</a>
+      </ul>
+      <ul>
+        <a href="#data-labelling">Data labelling</a>
+      </ul>
+    </li>
   </ol>
 </details>
 
@@ -74,3 +81,6 @@ num_out_samples = 1000
 folderName = "LCMS_samples"
 exportName = "Borneo_2016"
 ```
+Pada tahap terakhir dari bagian ini, *unlabelled samples dataset* yang telah dibuat akan diekspor ke Google Drive Anda pada folder yang telah ditentukan sebelumnya dalam format ESRI Shapefiles. Anda perlu mengunduh data tersebut terlebih dahulu untuk dapat melanjutkan ke proses data labelling. Anda perlu memastikan untuk menyimpan file unduhan tersebut pada root directory yang sama dengan lokasi file Jupyter notebook disimpan pada komputer Anda.
+
+### Data labelling
