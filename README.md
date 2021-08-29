@@ -46,3 +46,31 @@ conda install jupyter_contrib_nbextensions -c conda-forge
 ```
 
 ## Usage
+### Sample generator
+**Sample generator** akan membuat *unlabelled samples dataset* yang sebaran dan jumlahnya didasari hasil K-Means Clustering. Pada bagian **User Editable Part** pengguna dapat mengisikan variabel jumlah kluster (k) dan jumlah total titik sampel yang ingin dibuat. Titik sampel akan dibuat dengan jumlah proporsional berdasarkan luasan dari setiap kluster. Selain itu pengguna juga perlu mengisikan beberapa parameter lain seperti id asset GEE citra yang akan digunakan (**ee.Image()**), area pemetaan, dan folder **Google Drive** untuk ekspor data sampel yang dihasilkan.
+```python
+### USER EDITABLE PART
+
+# Bagian 1A: nama file object Earth Engine berikut alamat asset-nya
+# Contoh: "users/kfaisal/LCMS_Borneo_2016/L8_Borneo_2016_int" 
+img_asset = "users/kfaisal/LCMS_Borneo_2016/L8_Borneo_2016_int"
+
+# Bagian 1B: kombinasi RGB
+# Bands: {B2 = Blue, B3 = Green, B4 = Red, B5 = NIR, B6 = SWIR1, B7 = SWIR2}
+# Pilihan kombinasi RGB yang tersedia: "432" (komposit warna asli), "543", "562", "563", "564", "567"
+comp_rgb = "562"
+
+# Bagian 2: Study area
+# Pilihan: Sumatera, Jawa, Bali_NusaTenggara, Borneo, Sulawesi, Maluku, Papua
+studyArea = "Borneo" # jangan lupa membubuhkan tanda petik
+
+# Bagian 3: Jumlah K-Means clusters
+num_cluster = 15
+
+# Bagian 4: Jumlah titik sampel yang diinginkan
+num_out_samples = 1000
+
+# Bagian 5: Parameter ekspor samples ke Google Drive
+folderName = "LCMS_samples"
+exportName = "Borneo_2016"
+```
