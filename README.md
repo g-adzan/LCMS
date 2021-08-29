@@ -33,13 +33,13 @@ Solusi yang dapat digunakan untuk mengatasi permasalahan tersebut salah satunya 
 Aplikasi **Land Cover Sampling Tool** mencoba mengadaptasi pendekatan *semisupervised learning* tersebut dengan menggunakan metode K-Means Clustering. Dari setiap kluster yang dihasilkan, sejumlah titik sampel kemudian diambil secara acak dengan jumlah proporsi berdasarkan luas setiap kluster. Proses berikutnya adalah *data labelling*, yaitu memberikan label pada setiap titik sampel tersebut. Aplikasi ini dapat digunakan untuk berbagai citra multispektral maupun hiperspektral, namun dalam prototipe ini digunakan liputan citra Landsat 8 OLI sebagai contoh.
 
 ## Prerequisites
-Untuk menjalankan **Land Cover Sampling Tool** Jupyter Notebook Anda perlu membuat Python virtual environment dan melakukan instalasi beberapa Python package, direkomendasikan menggunakan `conda`.
+Untuk menjalankan **Land Cover Sampling Tool** Jupyter Notebook, pengguna perlu membuat Python virtual environment dan melakukan instalasi beberapa Python package, direkomendasikan menggunakan `conda`.
 
-Pertama, Anda perlu memastikan bahwa Python dan `anaconda` telah terpasang pada komputer Anda. Ketika memasang `anaconda`, Python3 otomatis akan terpasang pada komputer Anda. Instalasi `anaconda` dapat dilihat [di sini](https://docs.anaconda.com/anaconda/install/index.html).
+Pertama, pengguna perlu memastikan bahwa Python dan `anaconda` telah terpasang pada komputer pengguna. Ketika memasang `anaconda`, Python3 otomatis akan terpasang pada komputer pengguna. Instalasi `anaconda` dapat dilihat [di sini](https://docs.anaconda.com/anaconda/install/index.html).
 
-Kedua, Anda harus memiliki akun [Google Earth Engine](https://earthengine.google.com/) ([sign up](https://accounts.google.com/signin/v2/identifier?service=ah&passive=true&continue=https%3A%2F%2Fuc.appengine.google.com%2F_ah%2Fconflogin%3Fcontinue%3Dhttps%3A%2F%2Fsignup.earthengine.google.com%2F&flowName=GlifWebSignIn&flowEntry=ServiceLogin)).
+Kedua, pengguna harus memiliki akun [Google Earth Engine](https://earthengine.google.com/) ([sign up](https://accounts.google.com/signin/v2/identifier?service=ah&passive=true&continue=https%3A%2F%2Fuc.appengine.google.com%2F_ah%2Fconflogin%3Fcontinue%3Dhttps%3A%2F%2Fsignup.earthengine.google.com%2F&flowName=GlifWebSignIn&flowEntry=ServiceLogin)).
 
-Anda dapat membuat conda environment (lebih detil [di sini](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html)) dan memasang beberapa Python package dengan command berikut:
+Pengguna dapat membuat conda environment (lebih detil [di sini](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html)) dan memasang beberapa Python package dengan command berikut:
 
 ```python
 conda create --name lcms -c conda-forge python=3.8 earthengine-api geopandas mamba
@@ -47,7 +47,7 @@ conda activate lcms
 mamba install geemap xarray_leaflet -c conda-forge
 ```
 
-Anda juga dapat memasang [Jupyter notebook extension](https://github.com/ipython-contrib/jupyter_contrib_nbextensions) (tidak wajib).
+Pengguna juga dapat memasang [Jupyter notebook extension](https://github.com/ipython-contrib/jupyter_contrib_nbextensions) (tidak wajib).
 ```python
 conda install jupyter_contrib_nbextensions -c conda-forge
 ```
@@ -81,10 +81,10 @@ num_out_samples = 1000
 folderName = "LCMS_samples"
 exportName = "Borneo_2016"
 ```
-Pada tahap terakhir dari bagian ini, *unlabelled samples dataset* yang telah dibuat akan diekspor ke Google Drive Anda pada folder yang telah ditentukan sebelumnya dalam format ESRI Shapefiles. Anda perlu mengunduh data tersebut terlebih dahulu untuk dapat melanjutkan ke proses data labelling. Anda perlu memastikan untuk menyimpan file unduhan tersebut pada root directory yang sama dengan lokasi file Jupyter notebook disimpan pada komputer Anda.
+Pada tahap terakhir dari bagian ini, *unlabelled samples dataset* yang telah dibuat akan diekspor ke Google Drive Anda pada folder yang telah ditentukan sebelumnya dalam format ESRI Shapefiles. Pengguna perlu mengunduh data tersebut terlebih dahulu untuk dapat melanjutkan ke proses data labelling. Pengguna perlu memastikan untuk menyimpan file unduhan tersebut pada root directory yang sama dengan lokasi file Jupyter notebook disimpan pada komputer pengguna.
 
 ### Data labelling
-Sebelum memulai proses pemberian label penutup lahan secara interaktif, Anda perlu mendefinisikan dua variabel pada bagian **User Editable Part** yaitu lokasi penyimpanan titik sampel dalam format ESRI Shapefiles dan pilihan tipe penutup lahan.
+Sebelum memulai proses pemberian label penutup lahan secara interaktif, pengguna perlu mendefinisikan dua variabel pada bagian **User Editable Part** yaitu lokasi penyimpanan titik sampel dalam format ESRI Shapefiles dan pilihan tipe penutup lahan.
 ```python
 ### USER EDITABLE PART
 
@@ -96,4 +96,34 @@ path_to_shp = "./samples/Aug-06-2021_Borneo_2016_stratifiedsamples_15_1000_gcs.s
 
 # Bagian 2: daftar label tutupan lahan
 class_opt = ["Forest", "No-forest"]
+```
+
+Pada bagian peta interaktif, titik sampel akan ditampilkan satu persatu berdasaran unique ID yang dimiliki. Pengguna dapat memberikan label dengan memilih salah satu tipe penutup lahan dari *widget dropdownlist* dan meng-klik *trigger button* `Save edit`. Pengguna dapat beralih ke *feature* berikutnya dengan meng-klik *widget button* `Next feature` ataupun `Prev. feature`. Pengguna juga dapat beralih ke lokasi *feature* tertentu dengan memilih ID yang diinginkan dan meng-klik *widget button* `Jump to feature`.
+
+![ss_1](https://user-images.githubusercontent.com/60416865/131251370-8e5cbc5a-cf2f-4707-962a-f352055ad1bd.png)
+
+Pengguna dapat menyimpan hasil sementara pemberian label yang dilakukan untuk dapat diedit atau dilanjutkan lagi prosesnya. Pengguna juga dapat mengekspor hasil akhir pemberian label ke GEE asset sehingga data sampel tersebut dapat digunakan untuk proses berikutnya yaitu membangun *supervised machine learning model*.
+
+```python
+# Export current results
+
+# Encoding to 0 (No-forest) and 1 (Forest)
+gdf['Class_code'] = numpy.where(gdf['Class'].isnull(), 99, numpy.where(gdf['Class'] == 'Forest', 1, 0))
+
+gdf.to_file(path_to_shp)
+```
+```python
+# Export to Asset, later used as machine-learning classification input in GEE
+from datetime import date
+today = date.today()
+todaydate = today.strftime("%b-%d-%Y")
+
+# Convert geodataframe to ee object
+ee_export = geemap.geopandas_to_ee(gdf)
+
+exportTask = ee.batch.Export.table.toAsset(
+    collection = ee_export,
+    description = str(todaydate) + '_' + studyArea + '_forestCoverSamples',
+    assetId = 'users/gemasaktiadzan/' + description)
+exportTask.start()
 ```
